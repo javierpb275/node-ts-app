@@ -4,7 +4,7 @@ import express from 'express';
 const app = express();
 
 //Settings
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000);
 
 //Middlewares 
 
@@ -14,5 +14,5 @@ app.set('port', 3000);
 
 //starting the server
 app.listen(app.get('port'), () => {
-    console.log(`Server is up on port 3000`);
+    console.log(`Server is up on port ${app.get('port')}`);
 });
