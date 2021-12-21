@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean-l": "rm -rf build",
-    "clean-w": "del build"
+    "clean-w": "del build",
+    "build": "tsc",
+    "start": "node build/src"
   },
   "keywords": [],
   "author": "",
