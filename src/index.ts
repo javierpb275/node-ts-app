@@ -1,31 +1,34 @@
 import express from "express";
-import {engine as exphbs} from "express-handlebars";
-import path from 'path';
+import { engine as exphbs } from "express-handlebars";
+import path from "path";
 
 //Initializations
 const app = express();
 
 //Settings
 app.set("port", process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs', exphbs({
-    extname: '.hbs',
-    layoutsDir: path.join(app.get('views'), 'layouts'),
-    partialsDir: path.join(app.get('views'), 'partials'),
-    helpers: require('./lib/helpers')
-}));
+app.set("views", path.join(__dirname, "views"));
+app.engine(
+  ".hbs",
+  exphbs({
+    extname: ".hbs",
+    layoutsDir: path.join(app.get("views"), "layouts"),
+    partialsDir: path.join(app.get("views"), "partials"),
+    helpers: require("./lib/helpers"),
+  })
+);
 
-app.set('view engine', '.hbs');
+app.set("view engine", ".hbs");
 
 //Middlewares
 app.use(express.json()); //so I can understand the json object that get to my server.
 app.use(express.urlencoded({ extended: false })); //when an html form send me some data I can understand it
 
 //Routes
-app.get('/books', (req, res) => res.send('Books'));
+app.get("/books", (req, res) => res.send("Books"));
 
 //Static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 //starting the server
 app.listen(app.get("port"), () => {
