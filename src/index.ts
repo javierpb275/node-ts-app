@@ -22,6 +22,7 @@ app.use(express.json()); //so I can understand the json object that get to my se
 app.use(express.urlencoded({ extended: false })); //when an html form send me some data I can understand it
 
 //Routes
+app.get('/books', (req, res) => res.send('Books'));
 
 //Static files
 app.use(express.static(path.join(__dirname, 'public')));
