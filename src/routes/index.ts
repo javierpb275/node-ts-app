@@ -9,4 +9,8 @@ router.get("/add", (req: Request, res: Response) => {
   res.send("Form");
 });
 
+router.get('/about', (req: Request, res: Response) => {
+    res.render("about");
+})
+
 export default router;
