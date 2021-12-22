@@ -4,6 +4,7 @@ import path from "path";
 
 //importing routes
 import IndexRoutes from './routes'
+import BooksRoutes from './routes/books';
 
 //Initializations
 const app = express();
@@ -29,7 +30,8 @@ app.use(express.json()); //so I can understand the json object that get to my se
 app.use(express.urlencoded({ extended: false })); //when an html form send me some data I can understand it
 
 //Routes
-app.use("/books", IndexRoutes);
+app.use("/", IndexRoutes);
+app.use("/books", BooksRoutes);
 
 //Static files
 app.use(express.static(path.join(__dirname, "public")));
