@@ -2,6 +2,9 @@ import express from "express";
 import { engine as exphbs } from "express-handlebars";
 import path from "path";
 
+//importing routes
+import IndexRoutes from './routes'
+
 //Initializations
 const app = express();
 
@@ -25,7 +28,7 @@ app.use(express.json()); //so I can understand the json object that get to my se
 app.use(express.urlencoded({ extended: false })); //when an html form send me some data I can understand it
 
 //Routes
-app.get("/books", (req, res) => res.send("Books"));
+app.use("/books", IndexRoutes);
 
 //Static files
 app.use(express.static(path.join(__dirname, "public")));
