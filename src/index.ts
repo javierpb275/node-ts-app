@@ -3,8 +3,8 @@ import { engine as exphbs } from "express-handlebars";
 import path from "path";
 
 //importing routes
-import IndexRoutes from './routes'
-import BooksRoutes from './routes/books';
+import IndexRoutes from "./routes";
+import BooksRoutes from "./routes/books";
 
 //Initializations
 const app = express();
@@ -16,7 +16,7 @@ app.engine(
   ".hbs",
   exphbs({
     extname: ".hbs",
-    defaultLayout: 'main',
+    defaultLayout: "main",
     layoutsDir: path.join(app.get("views"), "layouts"),
     partialsDir: path.join(app.get("views"), "partials"),
     helpers: require("./lib/helpers"),
